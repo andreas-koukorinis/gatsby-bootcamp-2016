@@ -1,0 +1,3 @@
+For students:
+- install anaconda for Python 2.7. Make sure Jupyter notebooks work.
+- install Pycharm
