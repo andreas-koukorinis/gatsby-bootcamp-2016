@@ -1,0 +1,4 @@
+Animal	Food
+Sloth	Leaves
+Chicken	Corn
+Dragon	People

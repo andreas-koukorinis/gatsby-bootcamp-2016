@@ -1,3 +1,11 @@
 For students:
 - install anaconda for Python 2.7. Make sure Jupyter notebooks work.
 - install Pycharm
+- For those who use Windows, make sure that they install Cygwin (Linux
+  emulator). We will need this when talking about Slurm. Better if they can
+install Virtualbox (virtual machine) and install Ubuntu there. 
+- Windows users: putty (for ssh)
+
+
+For us:
+- Prepare an account for each student to login to Gatsby to test Slurm? 

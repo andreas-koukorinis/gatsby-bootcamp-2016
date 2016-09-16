@@ -1,0 +1,6 @@
+123456 John Doe 1.49
+312314 Jane Miller 0.00
+531337 Ted Johnson 8.12
+273263 Johnny Depp 0.0
+102931 Fred Asteir 1.20
+391273 Sarah Connor 10.39
