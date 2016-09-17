@@ -1,0 +1,6 @@
+Animal	Food
+Sloth	Leaves
+Chicken	Corn
+Ant_eater	Ants
+Penguin	Fish
+Armadillo	Ice_cream

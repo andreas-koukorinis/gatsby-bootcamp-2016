@@ -1,0 +1,14 @@
+(lp1
+S'a'
+aS'list'
+p2
+aS'with'
+p3
+aS'stuff'
+p4
+a(lp5
+I42
+aI23
+aF3.1400000000000001
+aaI01
+a.
