@@ -1,4 +1,5 @@
 For students:
+- install Matlab?
 - install anaconda for Python 2.7. Make sure Jupyter notebooks work.
 - install Pycharm
 - For those who use Windows, make sure that they install Cygwin (Linux
