@@ -1,4 +1,19 @@
+
+# Python
 *.swp
 *.ipynb_checkpoints
 *.pyc
 *.py~
+
+
+# Matlab
+*.m~
+
+# Dropbox
+.dropbox
+.dropbox.attr
+.dropbox.cache
+
+
+# ?
+.DS_Store
