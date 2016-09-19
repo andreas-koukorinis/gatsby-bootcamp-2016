@@ -1,0 +1,69 @@
+############################
+
+Information you need to do a git tutorial
+Kevin W Li
+18/09/2016
+
+############################
+
+
+Basic concepts:
+https://try.github.io/levels/1/challenges/1
+
+Remind the students that they need to set
+	git config --global user.name
+	git config --global user.email
+
+Graphical interface of git: 
+https://www.atlassian.com/software/sourcetree
+
+Do a demo on merging
+
+1. create a repo on git
+
+2. Select HTTPS not SSH, follow the instructions of creating a NEW repository, first create an empty folder
+echo "# git_tutorial" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/kevin-w-li/git_tutorial.git
+git push -u origin master
+
+3. Ask each of them to create a git repo like this, add an file with some lines in it. Commit and pull
+
+4. Ask them to add you into the repo for push
+
+5. You go in and modify the files, commit and push
+
+6. Students pull, edit the file again, commit and push
+
+7. At the same time, create some conflict and commit, try push without pull
+
+8. Pull, now show how to resolve a conflict by editing the file. Mention that there are better merge tools, or show your git mergetool
+
+for Vim:
+http://www.rosipov.com/blog/use-vimdiff-as-git-mergetool/
+
++-------------------------------------+
+| LOCAL  |     BASE     | REMOTE |
++-------------------------------------+
+|                 MERGED                |
++-------------------------------------+
+
+:diffg RE     # get from REMOTE
+:diffg BA     # get from BASE
+:diffg LO     # get from LOCAL
+:diffupdate  #  remove leftover spacing issues
+Ctrl w + h   # move to the split on the left 
+Ctrl w + j    # move to the split below
+Ctrl w + k   # move to the split on top
+Ctrl w + l	    # move to the split on the right
+]c - Jump to the next change.
+[c - Jump to the previous change.
+
+
+9. Commit and push the merge. Students pull.
+
+10. Now you change the files again and push, ask the students to make conflicting changes, let them try merge.
+
+11. Delete all those demo folders...
