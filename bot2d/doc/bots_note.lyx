@@ -1,0 +1,300 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{geometry}
+\usepackage{hyperref}
+%\usepackage{index}
+%\usepackage{mdwlist}
+
+
+% show only equation numbers for the equations that are referenced
+
+\usepackage{natbib}
+
+\usepackage{url}
+
+
+\newcommand{\diag}{\mathop{\mathrm{diag}}}
+\newcommand{\trace}{\mathop{\mathrm{tr}}}
+\newcommand{\median}{\mathop{\mathrm{median}}}
+
+\allowdisplaybreaks
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Generated Robots
+\end_layout
+
+\begin_layout Author
+Wittawat Jitkrittum
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+wittawat@gatsby.ucl.ac.uk
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This document describes the rules of the trajectories of the two robots
+ generated for Gatsby Bootcamp 2016.
+ These are part of an image/video processing task.
+\end_layout
+
+\begin_layout Section
+Hop Bot
+\end_layout
+
+\begin_layout Standard
+This robot moves in a discrete step.
+ The trajectory is generated as follows.
+\end_layout
+
+\begin_layout Enumerate
+Randomly pick an angle.
+\end_layout
+
+\begin_layout Enumerate
+Rotate (without changing its coordinate).
+\end_layout
+
+\begin_layout Enumerate
+Move forward for 
+\begin_inset Formula $d_{t}\sim\mathcal{N}(\mu,\sigma^{2})$
+\end_inset
+
+ pixels (where 
+\begin_inset Formula $t$
+\end_inset
+
+ denotes the current time step), and stop.
+\end_layout
+
+\begin_layout Enumerate
+Stop briefly.
+\end_layout
+
+\begin_layout Enumerate
+Go to step 1.
+\end_layout
+
+\begin_layout Standard
+Given this information on how the robot moves, and a sequence of 
+\begin_inset Formula $\{d_{t}\}_{t=1}^{T}$
+\end_inset
+
+ extracted from the video files, the goal is to infer 
+\begin_inset Formula $(\mu,\sigma^{2})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+First-order Markov Bot
+\end_layout
+
+\begin_layout Standard
+This robot moves in a discrete step as in the Hop Bot.
+ It maintains a state 
+\begin_inset Formula $x_{t}=(a_{t},d_{t})$
+\end_inset
+
+ where 
+\begin_inset Formula $a_{t}$
+\end_inset
+
+ is the angle (orientation) in Radians, and 
+\begin_inset Formula $d_{t}$
+\end_inset
+
+ is a distance to move forward in step 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ The state evolves according to a first-order Markov dynamics.
+ The rules are as follows.
+\end_layout
+
+\begin_layout Enumerate
+Set 
+\begin_inset Formula $(a_{0},d_{0})=(0,100)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $t=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Rotate for 
+\begin_inset Formula $a_{t}$
+\end_inset
+
+ Radians.
+ Here, 
+\begin_inset Formula $a_{t}$
+\end_inset
+
+ is relative to the heading of the robot at time 
+\begin_inset Formula $t-1$
+\end_inset
+
+.
+ Zero angles means that the robot does not actually rotate.
+ A negative value means it rotates counter-clockwise.
+ A positive value means it rotates clockwise.
+\end_layout
+
+\begin_layout Enumerate
+Move forward for 
+\begin_inset Formula $d_{t}$
+\end_inset
+
+ pixels.
+\end_layout
+
+\begin_layout Enumerate
+Stop briefly.
+\end_layout
+
+\begin_layout Enumerate
+Update 
+\begin_inset Formula 
+\begin{align*}
+a_{t+1} & =-{\color{blue}A}a_{t}+\pi\exp(-{\color{blue}B}/d_{t})+\eta_{t},\\
+d_{t+1} & =\frac{{\color{blue}C}}{|a_{t}|}+\frac{{\color{blue}D}}{1+d_{t}}+60+\gamma_{t},\\
+\text{where\thinspace\thinspace\ }\eta_{t} & \sim\mathcal{N}\left(0,\sqrt{\pi/10}\right),\\
+\gamma_{t} & \sim\mathrm{Uniform}(0,50),\\
+t & \leftarrow t+1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Go to step 3.
+\end_layout
+
+\begin_layout Standard
+Given the information on how the robot moves as above, and a (possibly more
+ than one) sequence 
+\begin_inset Formula $\{x_{t}\}_{t=1}^{T}$
+\end_inset
+
+ extracted from the video files, the goal is to infer the parameters 
+\begin_inset Formula $\theta=(A,B,C,D)$
+\end_inset
+
+.
+ This problem can be made simpler by revealing the true values of some subset
+ of 
+\begin_inset Formula $\{A,B,C,D\}$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
