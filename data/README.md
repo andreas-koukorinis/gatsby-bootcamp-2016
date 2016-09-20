@@ -13,10 +13,10 @@ and/or the direction of the tank. The images are extracted from `still_1gray.ogg
 * `still_2yellow` folder. Same as above but now with two tanks. Images are extracted from 
 `still_2yellow.ogg`.
 
-* `track_black1.ogg`: a video of a moving blank tank. Intended to be used for
+* `track_black1.ogg`: a video of a moving black tank. Intended to be used for
   extracting the trajectory.
 
-* `track_black2.ogg`: a video of a moving blank tank surrounded by more other
+* `track_black2.ogg`: a video of a moving black tank surrounded by more other
   tanks. For extracting the trajectory.
 
 * `track_2green1.ogg`: a video of many moving tanks. Extract the trajectories
