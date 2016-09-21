@@ -184,7 +184,7 @@ Given this information on how the robot moves, and a sequence of
 \end_layout
 
 \begin_layout Section
-First-order Markov Bot
+Gamma Markov Bot
 \end_layout
 
 \begin_layout Standard
@@ -251,6 +251,15 @@ Move forward for
 \end_inset
 
  pixels.
+ This distance 
+\begin_inset Formula $d_{t}$
+\end_inset
+
+ does not change even if the robot hits the wall before it can cover 
+\begin_inset Formula $d_{t}$
+\end_inset
+
+ pixels.
 \end_layout
 
 \begin_layout Enumerate
@@ -261,16 +270,16 @@ Stop briefly.
 Update 
 \begin_inset Formula 
 \begin{align*}
-a_{t+1} & =-{\color{blue}A}a_{t}+\pi\exp(-{\color{blue}B}/d_{t})+\eta_{t},\\
-d_{t+1} & =\frac{{\color{blue}C}}{|a_{t}|}+\frac{{\color{blue}D}}{1+d_{t}}+60+\gamma_{t},\\
-\text{where\thinspace\thinspace\ }\eta_{t} & \sim\mathcal{N}\left(0,\sqrt{\pi/10}\right),\\
-\gamma_{t} & \sim\mathrm{Uniform}(0,50),\\
-t & \leftarrow t+1
+a_{t+1} & =-{\color{blue}A}a_{t}+\pi\exp(-{\color{blue}B}/d_{t})\eta_{t}^{{\color{blue}P}},\\
+d_{t+1} & ={\color{blue}C}\exp\left(1+|a_{t}|\right)+\frac{{\color{blue}D}}{\sqrt{1+d_{t}}}+\gamma_{t},\\
+\text{where\thinspace\thinspace\ }\eta_{t} & \sim\mathrm{Gamma}({\color{blue}s_{a}},{\color{blue}c_{a}}),\\
+\gamma_{t} & \sim\mathrm{Gamma}({\color{blue}s_{d}},{\color{blue}c_{d}}),\\
+t & \leftarrow t+1,
 \end{align*}
 
 \end_inset
 
-
+and we use the shape-scale parametrization for Gamma distributions.
 \end_layout
 
 \begin_layout Enumerate
@@ -284,16 +293,48 @@ Given the information on how the robot moves as above, and a (possibly more
 \end_inset
 
  extracted from the video files, the goal is to infer the parameters 
-\begin_inset Formula $\theta=(A,B,C,D)$
+\begin_inset Formula $\theta=(A,B,P,C,D,s_{a},c_{a},s_{d},c_{d})$
 \end_inset
 
 .
  This problem can be made simpler by revealing the true values of some subset
  of 
-\begin_inset Formula $\{A,B,C,D\}$
+\begin_inset Formula $\theta$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Section
+First-order Markov Bot (Gaussian noise)
+\end_layout
+
+\begin_layout Standard
+Same as in the Gamma Markov bot except the dynamics are defined as
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula 
+\begin{align*}
+a_{t+1} & =-{\color{blue}A}a_{t}+\pi\exp(-{\color{blue}B}/d_{t})+\eta_{t},\\
+d_{t+1} & =\frac{{\color{blue}C}}{1+|a_{t}|}+\frac{{\color{blue}D}}{1+d_{t}}+60+\gamma_{t},\\
+\text{where\thinspace\thinspace\ }\eta_{t} & \sim\mathcal{N}\left(0,\sqrt{\pi/10}\right),\\
+\gamma_{t} & \sim\mathrm{Uniform}(0,50),\\
+t & \leftarrow t+1.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Infer the parameters 
+\begin_inset Formula $\theta=(A,B,C,D)$
+\end_inset
+
+.
+ 
 \end_layout
 
 \end_body
