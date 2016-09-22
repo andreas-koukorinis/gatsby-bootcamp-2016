@@ -25,4 +25,7 @@ and/or the direction of the tank. The images are extracted from `still_1gray.ogg
 * `track_3green1.ogg`: a video of many moving tanks. Extract the trajectories
   of the three green tanks.
 
+* `gam_markov_bot/, `hop_robot/`, `markov_bot/` are folders containing video
+  clips of robots following predefined trajectory rules. The rules are described in 
+  `bot2d/doc/`.
 
