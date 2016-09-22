@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/nfs/nhome/live/wittawat/git/gatsby-bootcamp-2016/bot2d/libs/robocode.jar" sourcepath="/nfs/nhome/live/wittawat/software/robocode-1.9.2.5-src/robocode.api/src">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/nfs/nhome/live/wittawat/robocode/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/nfs/nhome/live/wittawat/git/gatsby-bootcamp-2016/bot2d/libs/commons-math-2.2.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/nfs/nhome/live/wittawat/git/gatsby-bootcamp-2016/bot2d/libs/commons-math-2.2-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
